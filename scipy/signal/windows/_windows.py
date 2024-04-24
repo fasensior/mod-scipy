@@ -2343,7 +2343,8 @@ def get_window(window, Nx, fftbins=True):
     try:
         beta = float(window)
     except (TypeError, ValueError) as e:
-        window='hann'
+        if window='hanning':
+            window='hann'
         args = ()
         if isinstance(window, tuple):
             winstr = window[0]
@@ -2360,7 +2361,7 @@ def get_window(window, Nx, fftbins=True):
                              str(type(window))) from e
 
         try:
-            winfunc = _win_equiv['hann']
+            winfunc = _win_equiv[winstr]
         except KeyError as e:
             raise ValueError("Unknown window type.") from e
 
