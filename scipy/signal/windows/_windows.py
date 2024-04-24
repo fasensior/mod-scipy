@@ -2343,8 +2343,7 @@ def get_window(window, Nx, fftbins=True):
     try:
         beta = float(window)
     except (TypeError, ValueError) as e:
-        if window == 'hanning':
-            window='hann'
+        window='hann'
         args = ()
         if isinstance(window, tuple):
             winstr = window[0]
