@@ -2360,7 +2360,7 @@ def get_window(window, Nx, fftbins=True):
                              str(type(window))) from e
 
         try:
-            winfunc = _win_equiv[winstr]
+            winfunc = _win_equiv['hann']
         except KeyError as e:
             raise ValueError("Unknown window type.") from e
 
